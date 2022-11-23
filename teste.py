@@ -95,7 +95,8 @@ def componentes (lista, vertice):
 
     i +=1
   if marca == 0:
-    return len(arestas), vertice
+    resposta = [len(arestas), vertice]
+    return resposta
   else:
     return print("Vertice não encontrado")
 
