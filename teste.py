@@ -26,7 +26,7 @@ def loadData(dados):
   return mensagem
 
 #Exemplo de arquivo
-l = loadData("C://Users/Leite/Desktop/UFS/Grafos/Trabalho github/fazendo/teste.txt")
+l = loadData("teste.txt")
 
 # ----------------------------------------------------------------------------
 
@@ -154,8 +154,12 @@ def  maxDegree (lista):
     if maxGrau[0] == lista_aux[0]:
       resposta.append(lista_grau[p])
 
-
-  print(lista_grau)
+  for p in range(len(resposta)-1):
+    i = p + 1
+    for i in range(len(resposta)- 2):
+      if(resposta[p] == resposta[i]):
+        resposta.pop(i)
+        
   return resposta
 #---------------------------------------------------------------------------------
 
