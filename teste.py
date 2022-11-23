@@ -1,4 +1,4 @@
-import string
+
 # Aqui nos temos o algorítmo de Grafos, Vertices, Arestas
 class Grafo:
   def __init__ (self, vertices):
@@ -64,7 +64,15 @@ while (x < len(vert)):
 
 # ------------------------------------------------------------------------------
 
+# Criar Grafo vazio
 
+def graph():
+  x = Grafo(0)
+
+
+  return x.mostra_lista()
+
+# ------------------------------------------------------------------------------
 # Função número de Arestas
 
 def numEdges() -> int:
@@ -99,6 +107,16 @@ def componentes (lista, vertice):
     return resposta
   else:
     return print("Vertice não encontrado")
+
+# Eliminar Repetidos
+
+def remove_repetidos(lista):
+    l = []
+    for i in lista:
+        if i not in l:
+            l.append(i)
+
+    return l
 
 #-------------------------------------------------------------------------------
 
@@ -155,17 +173,16 @@ def  maxDegree (lista):
     if maxGrau[0] == lista_aux[0]:
       resposta.append(lista_grau[p])
 
-  for p in range(len(resposta)-1):
-    i = p + 1
-    for i in range(len(resposta)- 2):
-      if(resposta[p] == resposta[i]):
-        resposta.pop(i)
-        
-  return resposta
+
+  return remove_repetidos(resposta)
+
+
 #---------------------------------------------------------------------------------
 
 #print("\n")
 #g.mostra_lista()
+print("\n")
+print("Grafo Vazio", graph())
 print("\n")
 print("Numero de Pesquisadores:", numVertex ())
 print("\n")
@@ -173,5 +190,5 @@ print("Numero de Colaborações:", numEdges())
 print("\n")
 print("Maior colaboração (quantidade, id):", maxDegree(lista_linha))
 print("\n")
-print("Menor colaboração:", minDegree(lista_linha))
+print("Menor colaboração: ", minDegree(lista_linha))
 
