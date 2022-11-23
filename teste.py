@@ -122,7 +122,7 @@ def  minDegree (lista):
 
   minGrau = (lista_grau[0])
 
-  return minGrau
+  return minGrau[0]
 
 #---------------------------------------------------------------------------------
 
@@ -133,6 +133,8 @@ def  maxDegree (lista):
   x = 1
   lista_extend= []
   lista_grau = []
+  lista_aux = []
+  resposta = []
 
   for i in lista:
     lista_extend.extend(i)
@@ -147,11 +149,14 @@ def  maxDegree (lista):
 
   maxGrau = (lista_grau[len(lista_grau)-1])
 
-  return maxGrau
+  for p in range(len(lista_grau)):
+    lista_aux = lista_grau [p]
+    if maxGrau[0] == lista_aux[0]:
+      resposta.append(lista_grau[p])
 
 
-
-
+  print(lista_grau)
+  return resposta
 #---------------------------------------------------------------------------------
 
 #print("\n")
@@ -163,5 +168,5 @@ print("Numero de Colaborações:", numEdges())
 print("\n")
 print("Maior colaboração (quantidade, id):", maxDegree(lista_linha))
 print("\n")
-print("Menor colaboração: (quantidade, id)", minDegree(lista_linha))
+print("Menor colaboração:", minDegree(lista_linha))
 
