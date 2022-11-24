@@ -57,7 +57,21 @@ while (x < len(vert)):
   x+=2
   g.adiciona_aresta(int(vert[x-2]), int(vert[x-1]))
   count_arestas += 1
+  
+#------------------------------------------------------------------------------
+#Busca em Profundidade
 
+def busca_P (grafo, vertice):
+  visitados = set()
+
+  def busca_recursiva (grafo, vertice):
+    visitados.add(vertice)
+    for vizinho in grafo[vertice]:
+      if vizinho not in visitados:
+        busca_recursiva(grafo, vizinho)
+  
+  busca_recursiva(grafo, vertice)
+  
 # ------------------------------------------------------------------------------
 
 # Criar Grafo vazio
