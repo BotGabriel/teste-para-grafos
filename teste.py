@@ -83,7 +83,7 @@ def numVertex() -> int:
 
 #-------------------------------------------------------------------------------
 
-# Busca em Profundidade: Vértice e seus graus
+# Busca de Vértice e seus graus
 
 def componentes (lista, vertice):
   i = 1
