@@ -41,10 +41,6 @@ for i in range(len(l)):
 for i in lista_linha:
   vert.extend(i)
 
-#print("\n")
-#print(lista_linha)
-#print("\n")
-#print(vert)
 
 # Primeira linha informando o número de vértices
 n_vert = int(vert[0])
