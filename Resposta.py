@@ -10,14 +10,17 @@ class Grafo:
     self.grafo[u-1].append(v)
     self.grafo[v-1].append(u)
 
-  
+  def print_grafo (self):
+    print(self.grafo)
+
   def mostra_lista (self):
     for i in range (self.vertices):
       print(f'{i+1}:', end = '  ')
       for j in self.grafo[i]:
-        print(f'{j}  ->', end = '  ')
+        print(f' {j}  ->', end = '  ')
       print('')
-# --------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
 
 # Leitura do arquivo
 def loadData(dados):
@@ -57,7 +60,7 @@ while (x < len(vert)):
   x+=2
   g.adiciona_aresta(int(vert[x-2]), int(vert[x-1]))
   count_arestas += 1
-  
+
 #------------------------------------------------------------------------------
 #Busca em Profundidade
 
@@ -71,7 +74,7 @@ def busca_P (grafo, vertice):
         busca_recursiva(grafo, vizinho)
   
   busca_recursiva(grafo, vertice)
-  
+
 # ------------------------------------------------------------------------------
 
 # Criar Grafo vazio
@@ -99,7 +102,7 @@ def numVertex() -> int:
 
 # Busca de Vértice e seus graus
 
-def componentes (lista, vertice):
+def busca_componentes (lista, vertice):
   i = 1
   lista_aux = []
   marca = 2
@@ -128,6 +131,8 @@ def remove_repetidos(lista):
 
     return l
 
+
+
 #-------------------------------------------------------------------------------
 
 # Busca do grau mínimo
@@ -143,7 +148,7 @@ def  minDegree (lista):
   
   while (x < len(lista_extend)):
 
-    lista_grau.append(componentes(lista, int(lista_extend[x])))
+    lista_grau.append(busca_componentes(lista, int(lista_extend[x])))
 
     x += 2
 
@@ -170,7 +175,7 @@ def  maxDegree (lista):
   
   while (x < len(lista_extend)):
 
-    lista_grau.append(componentes(lista, int(lista_extend[x])))
+    lista_grau.append(busca_componentes(lista, int(lista_extend[x])))
 
     x += 2
 
@@ -189,16 +194,17 @@ def  maxDegree (lista):
 
 #---------------------------------------------------------------------------------
 
-#print("\n")
-#g.mostra_lista()
-print("\n")
+print('')
+g.mostra_lista()
+print('')
 print("Grafo Vazio", graph())
-print("\n")
+print('')
 print("Numero de Pesquisadores:", numVertex ())
-print("\n")
+print('')
 print("Numero de Colaborações:", numEdges())
-print("\n")
+print('')
 print("Maior colaboração (quantidade, id):", maxDegree(lista_linha))
-print("\n")
+print('')
 print("Menor colaboração: ", minDegree(lista_linha))
+
 
